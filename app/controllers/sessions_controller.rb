@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def index
-    render plain: "Hi!"
+
   end
 
   def login
