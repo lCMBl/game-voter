@@ -54,7 +54,7 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   root "sessions#index"
-  get "/dashboard" => "user#dashboard"
+  get "/dashboard" => "users#dashboard"
   post "/sessions" => "sessions#login"
 
   resources :users, only: [:new, :create]
