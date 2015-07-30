@@ -1,10 +1,15 @@
 class SessionsController < ApplicationController
   def index
-
+    @user = User.new
   end
 
   def login
-    #logs the user in, and redirects to the user dashboard
+    user = User.find_by(email: session_params[:email])
+    if user && user.authenticate(session_params[:password])
+      render plain: "User logged in: #{user.name}"
+    else
+      render root_path
+    end
   end
 
   def logout
@@ -15,6 +20,6 @@ class SessionsController < ApplicationController
   private
 
   def session_params
-
+    params.require(:user).permit(:email, :password)
   end
 end
