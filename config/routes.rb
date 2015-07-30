@@ -54,8 +54,11 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   root "sessions#index"
+
   get "/dashboard" => "users#dashboard"
+  
   post "/sessions" => "sessions#login"
+  get "/logout" => "sessions#logout"
 
   resources :users, only: [:new, :create]
   resources :games
