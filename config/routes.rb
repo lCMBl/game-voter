@@ -53,4 +53,15 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  root "sessions#index"
+
+  get "/dashboard" => "users#dashboard"
+
+  post "/sessions" => "sessions#login"
+  get "/logout" => "sessions#logout"
+
+  resources :users, only: [:new, :create]
+  resources :games do
+    resources :votes, only: :create
+  end
 end
