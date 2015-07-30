@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  include SessionHelpers
+
   def index
     @user = User.new
   end
@@ -6,7 +8,8 @@ class SessionsController < ApplicationController
   def login
     user = User.find_by(email: session_params[:email])
     if user && user.authenticate(session_params[:password])
-      render plain: "User logged in: #{user.name}"
+      login_user(user)
+      render plain: "User logged in: #{user.name}: #{current_user_id}"
     else
       render root_path
     end
