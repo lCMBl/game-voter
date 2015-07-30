@@ -4,5 +4,5 @@ class User < ActiveRecord::Base
   has_many :votes
   has_many :games
 
-
+  validates :email, :name, :password_digest, presence: true
 end
