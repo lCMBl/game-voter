@@ -56,10 +56,12 @@ Rails.application.routes.draw do
   root "sessions#index"
 
   get "/dashboard" => "users#dashboard"
-  
+
   post "/sessions" => "sessions#login"
   get "/logout" => "sessions#logout"
 
   resources :users, only: [:new, :create]
-  resources :games
+  resources :games do
+    resources :votes, only: :create
+  end
 end
