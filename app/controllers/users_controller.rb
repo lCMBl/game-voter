@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def new
-    render plain: "hi!"
+    
   end
 
   def create
