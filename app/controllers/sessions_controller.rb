@@ -9,15 +9,16 @@ class SessionsController < ApplicationController
     user = User.find_by(email: session_params[:email])
     if user && user.authenticate(session_params[:password])
       login_user(user)
-      render plain: "User logged in: #{user.name}: #{current_user_id}"
+      redirect_to dashboard_path
     else
-      render root_path
+      redirect_to root_path
     end
   end
 
   def logout
     #logs the user out and returns to index
-    render plain: "this is the logout route"
+    logout_user
+    redirect_to root_path
   end
 
   private
