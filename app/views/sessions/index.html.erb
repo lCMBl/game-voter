@@ -1,1 +1,14 @@
-<h1> hi! </h1>
+<h3>Welcome to Game Idea Voter</h3>
+<div>
+  <!-- <form action="/sessions" method="post">
+    <p><input type="email" placeholder="Email"></p>
+    <p><input type="password" placeholder="Password"></p>
+    <p><input type="submit" value="Log in"></p>
+  </form> -->
+
+  <%= form_for @user, url: {action: :login} do |f| %>
+    <p><%= f.email_field :email, placeholder: "Email" %></p>
+    <p><%= f.password_field :password, placeholder: "Password" %></p>
+    <p><%= f.submit "Log in"%></p>
+  <% end %>
+</div>
