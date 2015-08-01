@@ -16,4 +16,8 @@ module SessionHelpers
   def logout_user
     session[:user_id] = nil
   end
+
+  def is_logged_in?
+    session[:user_id] != nil
+  end
 end
