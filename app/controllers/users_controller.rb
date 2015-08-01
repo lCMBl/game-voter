@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      login_user
       redirect_to dashboard_path
     else
       # display validation error message
