@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
   has_many :games
 
   validates :email, :name, :password_digest, presence: true
+  validates :email, uniqueness: true
 end
