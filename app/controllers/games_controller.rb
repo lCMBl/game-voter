@@ -5,7 +5,7 @@ class GamesController < ApplicationController
   end
 
   def show
-
+    @game = Game.find_by_id(params[:id])
   end
 
   def new
