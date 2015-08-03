@@ -3,14 +3,14 @@
 <h3>Current leading game ideas: </h3>
   <ul>
     <% @leading_games.each do |game| %>
-     <li><%= "#{game.votes.count} ||| #{game.title}" %></li>
+     <li><%= link_to "#{game.votes.count} ||| #{game.title}", game_path(game) %></li>
     <% end %>
   </ul>
 <div>
   <h4>Your submitted game ideas:</h4>
   <ul>
     <% @user_games.each do |game| %>
-     <li><%= "#{game.votes.count} ||| #{game.title}" %></li>
+     <li><%= link_to "#{game.votes.count} ||| #{game.title}", game_path(game) %></li>
     <% end %>
   </ul>
 </div>
@@ -18,7 +18,7 @@
   <h4>Game ideas you still have to vote on:</h4>
   <ul>
     <% @games_in_vote_que.each do |game| %>
-     <li><%= "#{game.votes.count} ||| #{game.title}" %></li>
+     <li><%= link_to "#{game.votes.count} ||| #{game.title}", game_path(game)  %></li>
     <% end %>
   </ul>
 </div>
