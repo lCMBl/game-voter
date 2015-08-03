@@ -1,4 +1,8 @@
 class GamesController < ApplicationController
+  include SessionHelpers
+  before_action :check_authentication
+  skip_before_action :check_authentication, only: [:index, :show]
+
   def index
     @games = Game.all
     @user_count = User.all.count
