@@ -9,8 +9,7 @@ module SessionHelpers
   end
 
   def current_user_id
-    user = User.find_by_id(session[:user_id])
-    user.id unless user == nil
+    session[:user_id]
   end
 
   def logout_user

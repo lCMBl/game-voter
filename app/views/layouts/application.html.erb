@@ -7,7 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= render partial: "layouts/navbar" if current_user != nil %>
+<% if is_logged_in? %>
+<%= render partial: "layouts/navbar"%>
+<% end %>
 <%= yield %>
 
 </body>
