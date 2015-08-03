@@ -1,1 +1,9 @@
-<p> you are editing a game! </p>
+<h3>Editing game: </h3>
+<%= form_for @game do |f|%>
+  <p><%= f.label :title %></p>
+  <p><%= f.text_field :title %></p>
+
+  <p><%= f.label :description %></p>
+  <p><%= f.text_area(:description, cols: 80, rows: 30) %></p>
+  <p><%= f.submit "Update Game Idea" %></p>
+<% end %>
