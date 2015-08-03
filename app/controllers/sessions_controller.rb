@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
   include SessionHelpers
 
   def index
+    redirect_to dashboard_path unless current_user == nil
     @user = User.new
   end
 

@@ -1,5 +1,5 @@
 <h1><%= current_user.name %>'s Dashboard</h1>
-
+<%= link_to "Logout", logout_path%>
 <h3>Current leading game ideas: </h3>
   <ul>
     <% @leading_games.each do |game| %>
