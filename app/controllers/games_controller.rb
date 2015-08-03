@@ -17,7 +17,13 @@ class GamesController < ApplicationController
   end
 
   def create
-
+    @game = current_user.games.new(game_params)
+    if @game.save
+      redirect_to game_path(@game)
+    else
+      #set errors and render
+      render new_game_path
+    end
   end
 
   def edit
@@ -35,6 +41,6 @@ class GamesController < ApplicationController
   private
 
   def game_params
-
+    params.require(:game).permit(:title, :description)
   end
 end
