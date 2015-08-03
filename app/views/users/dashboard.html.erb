@@ -9,10 +9,16 @@
 <div>
   <h4>Your submitted game ideas:</h4>
   <ul>
+    <% @user_games.each do |game| %>
+     <li><%= "#{game.votes.count} ||| #{game.title}" %></li>
+    <% end %>
   </ul>
 </div>
 <div>
   <h4>Game ideas you still have to vote on:</h4>
   <ul>
+    <% @games_in_vote_que.each do |game| %>
+     <li><%= "#{game.votes.count} ||| #{game.title}" %></li>
+    <% end %>
   </ul>
 </div>
