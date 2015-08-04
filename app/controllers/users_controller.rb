@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  include SessionHelpers
+  include SessionHelpers, GameHelpers
   before_action :check_authentication
   skip_before_action :check_authentication, except: [:dashboard]
 
@@ -26,7 +26,8 @@ class UsersController < ApplicationController
     @user_games = @user.games
     @games_in_vote_que = []
     Game.all.each do |game|
-      @games_in_vote_que << game if Vote.where(game_id: game.id, user_id: current_user_id).count == 0
+      # @games_in_vote_que << game if Vote.where(game_id: game.id, user_id: current_user_id).count == 0
+      @games_in_vote_que << game unless has_voted_on_game?(game, current_user_id)
     end
     # @games_in_vote_que = Game.select("games.*").joins(:votes).group("games.id").where.not(user_id: @user.id)
   end

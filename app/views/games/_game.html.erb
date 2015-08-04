@@ -2,8 +2,13 @@
   <h3><%= game.title %></h3>
   <span>Votes: <%= game.votes.count %></span>
   <h5>Submitted by: <%= game.user.name %></h5>
-  <p><%=link_to_if(current_user_id == game.user_id, "Edit Game Idea", edit_game_path(game) )%> <%= link_to_if(current_user_id == game.user_id, "Delete Game Idea", game, method: :delete, data: {confirm: "Are you sure you wish to delete this game idea?"})%></p>
+  <p><%=link_to_if(current_user_id == game.user_id, "Edit Game Idea", edit_game_path(game) ){""}%> <%= link_to_if(current_user_id == game.user_id, "Delete Game Idea", game, method: :delete, data: {confirm: "Are you sure you wish to delete this game idea?"}){""}%></p>
   <hr>
   <p><%= game.description %></p>
-  <p><a id="vote-button" href="">I would be okay working on this game idea.</a></p>
+  <!-- <p><a id="vote-button" href="">I would be okay working on this game idea.</a></p> -->
+  <p><%= link_to_if(!has_voted_on_game?(game, current_user_id), "I would be okay working on this game idea.", "", id: "vote-button") do
+      "You have decided that you would be okay working on this game project"
+    end
+    %>
+  </p>
 </div>
