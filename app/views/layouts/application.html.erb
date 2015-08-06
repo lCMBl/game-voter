@@ -10,7 +10,12 @@
 <% if is_logged_in? %>
 <%= render partial: "layouts/navbar"%>
 <% end %>
-<%= yield %>
+<div class="container">
+  <div class="card-panel grey lighten-3">
+    <%= yield %>
+  </div>
+</div>
+
 
 </body>
 </html>
