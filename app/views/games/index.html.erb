@@ -2,8 +2,17 @@
 <div>Total Ideas: <%= @games.size %></div>
 <div>Total Users: <%= @user_count %></div>
 <hr>
-<ul>
-  <% @games.each do |game| %>
-  <li><%=link_to "#{game.votes.count} ||| #{game.title}", game_path(game) %></li>
-  <% end %>
-</ul>
+<div class="row">
+  <span class="col s2">Votes:</span>
+  <span class="col s8 offset-s2">Title:</span>
+</div>
+<div class="row">
+  <ul>
+    <% @games.each do |game| %>
+    <li>
+      <span class="col s2"><%=game.votes.count%></span>
+      <span class="col s8 offset-s2"><%= link_to "#{game.title}", game_path(game) %></span>
+    </li>
+    <% end %>
+  </ul>
+</div>
