@@ -48,3 +48,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
 end
+
+group :production do
+  gem 'rails_12factor'
+end
