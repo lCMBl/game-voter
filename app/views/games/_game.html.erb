@@ -7,8 +7,9 @@
     <%= link_to_if(current_user_id == game.user_id, "Delete Game Idea", game, class:"waves-effect waves-light btn grey lighten-2 orange-text", method: :delete, data: {confirm: "Are you sure you wish to delete this game idea?"}){""}%>
   </p>
   <hr>
-  <p><%= game.description %></p>
+  <p class="whitespace"><%= game.description %></p>
   <!-- <p><a id="vote-button" href="">I would be okay working on this game idea.</a></p> -->
+  <hr>
   <p><%= link_to_if(!has_voted_on_game?(game, current_user_id), "I would be okay working on this game idea.", "", class: "waves-effect waves-light btn grey lighten-2 orange-text",id: "vote-button") do
       "You have decided that you would be okay working on this game project"
     end
