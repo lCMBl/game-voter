@@ -6,7 +6,7 @@
   <%= javascript_include_tag 'application'%>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="grey darken-1">
 <% if is_logged_in? %>
 <%= render partial: "layouts/navbar"%>
 <% end %>
