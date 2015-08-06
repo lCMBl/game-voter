@@ -1,24 +1,53 @@
-<h1><%= current_user.name %>'s Dashboard</h1>
-<%= link_to "Logout", logout_path%>
-<h3>Current leading game ideas: </h3>
-  <ul>
-    <% @leading_games.each do |game| %>
-     <li><%= link_to "#{game.votes.count} ||| #{game.title}", game_path(game) %></li>
-    <% end %>
-  </ul>
 <div>
-  <h4>Your submitted game ideas:</h4>
-  <ul>
-    <% @user_games.each do |game| %>
-     <li><%= link_to "#{game.votes.count} ||| #{game.title}", game_path(game) %></li>
-    <% end %>
-  </ul>
-</div>
-<div>
-  <h4>Game ideas you still have to vote on:</h4>
-  <ul>
-    <% @games_in_vote_que.each do |game| %>
-     <li><%= link_to "#{game.votes.count} ||| #{game.title}", game_path(game)  %></li>
-    <% end %>
-  </ul>
+  <div>
+
+    <div class="row">
+      <div class="col s12 m6 l6 offset-m3 offset-l3 ">
+      <h3>Current leading game ideas: </h3>
+      <div class="row">
+        <h5 class="col s6">Votes:</h5><h5 class="col s6">Title:</h5>
+      </div>
+        <ul>
+          <% @leading_games.each do |game| %>
+           <li>
+             <span class="col s6"><%=game.votes.count%></span>
+             <span class="col s6"><%= link_to "#{game.title}", game_path(game) %></span>
+           </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col s12 m6 l6">
+        <h4>Your submitted game ideas:</h4>
+        <div class="row">
+          <h5 class="col s6">Votes:</h5><h5 class="col s6">Title:</h5>
+        </div>
+          <ul>
+            <% @user_games.each do |game| %>
+             <li>
+               <span class="col s6"><%=game.votes.count%></span>
+               <span class="col s6"><%= link_to "#{game.title}", game_path(game) %></span>
+             </li>
+            <% end %>
+          </ul>
+      </div>
+
+      <div class="col s12 m6 l6">
+        <h4>Game ideas not yet voted on:</h4>
+        <div class="row">
+          <h5 class="col s6">Votes:</h5><h5 class="col s6">Title:</h5>
+        </div>
+          <ul>
+            <% @games_in_vote_que.each do |game| %>
+             <li>
+               <span class="col s6"><%=game.votes.count%></span>
+               <span class="col s6"><%= link_to "#{game.title}", game_path(game) %></span>
+             </li>
+            <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>

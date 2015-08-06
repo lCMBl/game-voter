@@ -4,6 +4,6 @@
   <p><%= f.text_field :title %></p>
 
   <p><%= f.label :description %></p>
-  <p><%= f.text_area(:description, cols: 80, rows: 30) %></p>
+  <p><%= f.text_area(:description, cols: 80, rows: 30, class: "materialize-textarea") %></p>
   <p><%= f.submit "Submit Game Idea" %></p>
 <% end %>
